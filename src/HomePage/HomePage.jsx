@@ -79,7 +79,7 @@ function HomePage () {
           </span>
         </h1>
 
-        <img src="/me.jpeg" className={styles.me} />
+        <img src="/me.jpeg" alt="Abdelrahman" className={styles.me} />
       </div>
 
       <div ref={monologueRef} className={`${styles.monologue} ${showMonologue ? styles.fadeIn : ""}`}>

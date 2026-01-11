@@ -1,0 +1,128 @@
+.title {
+    text-align: center;
+    font-family: "Playfair Display", serif;
+    font-weight: 500;
+    color: #FF3409;
+  
+    font-size: clamp(3rem, 10vw, 8rem); /* ✅ responsive */
+    margin: clamp(2rem, 6vw, 3rem) 0;
+  }
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.experience {
+    --timeline-x: 50px;
+    max-width: 1100px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.experience::before {
+    content: "";
+    position: absolute;
+    left: var(--timeline-x);
+    top: 0;
+    bottom: 65px;
+    width: 3px;
+    background-color: #5fb3a2;
+}
+
+.item {
+    display: grid;
+    grid-template-columns: 100px 1fr; /* timeline | content */
+    margin-bottom: 48px;            /* spacing between cards */
+    position: relative;
+}
+
+.item::before {
+    content: "";
+    position: absolute;
+    left: calc(var(--timeline-x) + 1.5px); /* center of 3px line */
+    transform: translateX(-50%);
+    top: 32px;
+
+    width: 16px;
+    height: 16px;
+    background-color: #5fb3a2;
+    border-radius: 50%;
+    z-index: 2;
+}
+  
+/* card */
+.card {
+    grid-column: 2;
+    background: #fff;
+    padding: 100px 116px;
+    border-radius: 16px;
+
+    width: 100%;
+    max-width: 840px;
+    min-height: 200px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* vertical centering */
+
+    box-shadow:
+        0 1px 0 rgba(0,0,0,0.04),
+        0 12px 30px rgba(0,0,0,0.08);
+}
+
+
+  
+.date {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #5fb3a2;
+}
+
+.card h2 {
+    margin: 6px 0;
+    font-size: 3rem;
+}
+
+.card h3 {
+    margin: 6px 0;
+    font-size: 1.5rem;
+}
+  
+.card p {
+    color: #666;
+    line-height: 1.5;
+    margin: 6px 0;
+}
+
+@media (max-width: 934px) {
+    .item {
+      grid-template-columns: 1fr; /* 👈 no timeline column */
+    }
+  
+    .card {
+      grid-column: 1;
+    }
+  
+    .experience::before,
+    .item::before {
+      display: none; /* hide timeline + dots */
+    }
+  }
+
+  @media (max-width: 934px) {
+    .card {
+      padding: 2rem 1.5rem; /* 👈 mobile-safe padding */
+    }
+  
+    .card h2 {
+      font-size: 2rem;
+    }
+  
+    .card h3 {
+      font-size: 1.25rem;
+    }
+  }
+  
+
+ 

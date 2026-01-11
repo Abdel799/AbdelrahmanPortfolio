@@ -56,7 +56,7 @@ function HomePage () {
     return (
         <>
       <div className={styles.wrapper}>
-        <img src="/home.png" className={styles.image} />
+        <img src="/home.png" alt="home" className={styles.image} />
       </div>
 
       <div ref={introRef} className={styles.intro}>

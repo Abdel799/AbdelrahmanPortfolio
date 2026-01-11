@@ -28,12 +28,23 @@ function Snake () {
                     open ? styles.show : ""
                     }`}
                 >
-                    <img
-                        src="Snake.png"
-                        alt="Snake Game preview"
-                        className={styles.proImage}
-                    />
+                    
+                    <a
+                    
+                        href="https://github.com/Abdel799/snakeGame.github.io"
+                        target="_blank"
+                        rel="noopener noreferrer"
 
+                    >
+
+                        <img
+                            src="Snake.png"
+                            alt="Snake Game preview"
+                            className={styles.proImage}
+                        />
+
+                    </a>
+                    
                         <p>
                             <span className={styles.bold}>Description:</span> This is a simple single player Snake
                             game where the users control the snake using the arrows on their keyboard to eat as many

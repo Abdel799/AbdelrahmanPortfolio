@@ -27,12 +27,20 @@ function LofiNest () {
                         open ? styles.show : ""
                         }`}
                     >
-                        <img
-                        src="/LofiNest.png"
-                        alt="Lofi Nest preview"
-                        className={styles.proImage}
-                        />
-            
+                        <a 
+                            href="https://lofinest.netlify.app/"
+                            target="_blank"
+                            rel="noopener noreferrer">
+
+
+                            <img
+                                src="/LofiNest.png"
+                                alt="Lofi Nest preview"
+                                className={styles.proImage}
+                            />
+
+                        </a>
+                        
                         <p>
                             <span className={styles.bold}>Description:</span> Lofi Nest is an all-in-one study platform that houses
                             lofi music, study notes, a calendar, and an AI chat bot. 

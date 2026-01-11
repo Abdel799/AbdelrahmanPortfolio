@@ -31,11 +31,21 @@ function Dashboard () {
                     open ? styles.show : ""
                     }`}
                 >
-                    <img
-                        src="Dashboard2.png"
-                        alt="Dashboard preview"
-                        className={styles.proImage}
-                    />
+                    <a
+                        href="https://devpost.com/software/cost-of-living-dashboard"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+
+                        <img
+                            src="Dashboard2.png"
+                            alt="Dashboard preview"
+                            className={styles.proImage}
+                        />
+
+                    </a>
+                    
+                    
 
                         <p>
                             <span className={styles.bold}>Description:</span> This platform is a dashboard that houses

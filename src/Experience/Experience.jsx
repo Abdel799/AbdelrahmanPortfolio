@@ -16,7 +16,7 @@ function Experience () {
                     <div className={styles.card}>
                         <span className={styles.date}>May 2025 - Present</span>
 
-                        <h2>QA Automation Engineer</h2>
+                        <h2>Software QA Engineer</h2>
                         <h3>Government of Ontario</h3>
                         <p>Serve as the sole QA Automation Engineer on the Program Approval & Registration 
                             Information System (PARIS) project, maintaining 40+ automated scripts and 200+ 
@@ -46,7 +46,7 @@ function Experience () {
                     <div className={styles.card}>
                         <span className={styles.date}>January 2023 - May 2024</span>
 
-                        <h2>IT Assistant</h2>
+                        <h2>Software Developer Assistant</h2>
                         <h3>SH Dina Health & Wellness Inc.</h3>
                         <p>Supported and enhanced the company website for 40+ clients, delivering CSS/UI updates 
                             and resolving web-related issues to ensure accessible and reliable user experiences.

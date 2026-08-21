@@ -7,7 +7,7 @@ function Card ({ title, image, tech, description, demo, github }) {
 
             <div className={styles.cardContainer}>
                 <h1>{title}</h1>
-                <img className={styles.cardImage} src={image}/>
+                <img className={styles.cardImage} src={image} alt={typeof title === "string" ? title : "Project"}/>
                 <h3>Tech Stack: {tech}</h3>
                 <p>{description}</p>
 

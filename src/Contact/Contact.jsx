@@ -41,8 +41,8 @@ function Contact () {
 
               <div className={styles.socialLinks}>
 
-                <img src="linkedin.png" alt="" onClick={() => window.open("https://www.linkedin.com/in/abdelrahman-abdelaal-6714752a6/","_blank")}/>
-                <img src="github.png" alt="" onClick={() => window.open("https://github.com/Abdel799","_blank")}/>                
+                <img src="linkedin.png" alt="LinkedIn" onClick={() => window.open("https://www.linkedin.com/in/abdelrahman-abdelaal-6714752a6/","_blank")}/>
+                <img src="github.png" alt="Github" onClick={() => window.open("https://github.com/Abdel799","_blank")}/>                
                 <img src="email.png" alt="Email" onClick={() => window.location.href = "mailto:abdelrahman.abd@hotmail.com"}/>
 
               </div>

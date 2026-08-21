@@ -14,9 +14,8 @@ function Experience () {
                 <div className={styles.item}>
 
                     <div className={styles.card}>
-                        <span className={styles.date}>May 2025 - Present</span>
-
-                        <h2>Software QA Engineer</h2>
+                        
+                        <h2>Software QA Engineer Co-op</h2>
                         <h3>Government of Ontario</h3>
                         <p>Serve as the sole QA Automation Engineer on the Program Approval & Registration 
                             Information System (PARIS) project, maintaining 40+ automated scripts and 200+ 
@@ -25,12 +24,19 @@ function Experience () {
 
                     </div>
 
+                    <div className={styles.dot}></div>
+
+                    <span className={styles.date}>May 2025 - August 2026</span>
+
                 </div>
 
-                <div className={styles.item}>
+                <div className={`${styles.item} ${styles.reverse}`}>
 
+                    <span className={styles.date}>May 2024 - August 2024</span>
+
+                    <div className={styles.dot}></div>
+                    
                     <div className={styles.card}>
-                        <span className={styles.date}>May 2024 - August 2024</span>
 
                         <h2>Application Developer Intern</h2>
                         <h3>Alta Real Estate</h3>
@@ -44,7 +50,6 @@ function Experience () {
                 <div className={styles.item}>
 
                     <div className={styles.card}>
-                        <span className={styles.date}>January 2023 - May 2024</span>
 
                         <h2>Software Developer Assistant</h2>
                         <h3>SH Dina Health & Wellness Inc.</h3>
@@ -52,6 +57,10 @@ function Experience () {
                             and resolving web-related issues to ensure accessible and reliable user experiences.
                         </p>
                     </div>
+
+                    <div className={styles.dot}></div>
+
+                    <span className={styles.date}>January 2023 - May 2024</span>
 
                 </div>
         

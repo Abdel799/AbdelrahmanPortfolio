@@ -16,10 +16,12 @@
     max-width: 1100px;  /* desktop size */
     height: auto;
     display: block;
+    cursor: default;
 }
 
 .intro {
-    display: flex;
+    display: grid;
+    grid-template-columns: 420px 330px;
     align-items: center;
     justify-content: center;
     gap: clamp(1.5rem, 4vw, 4rem);
@@ -27,6 +29,8 @@
     margin-top: clamp(2rem, 6vw, 5rem);
     padding: 2rem 2rem;
     background-color: #FCF9EB;
+    justify-items: center;
+    text-align: center;
 }
 
 .intro h1 {
@@ -93,10 +97,69 @@
     max-width: 700px;
 }
 
-@media (max-width: 768px) {
-    .intro {
-      flex-direction: column;
-      text-align: center;
-    }
+.projectBtn {
+    background-color: #FF3409;
+    border-radius:20px;
+    border: none;
+    padding: 20px;
+    box-shadow: 3px 3px gray;
+
+    text-decoration: none;
+    color: #fff;
+    font-size: 30px;
+    font-family:'Times New Roman', Times, serif
 }
 
+.projectBtn:hover {
+    background-color: #FCF9EB;
+    transition: 0.4s;
+    border: 1px solid black;
+
+    color:#FF3409;
+    transition: 0.4s;
+}
+
+.projectBtnContainer {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 3rem;
+    max-width: 1200px;
+    margin: 2rem auto 0;
+
+    justify-items: start;
+}
+
+
+@media (max-width: 768px) {
+    .intro {
+        grid-template-columns: minmax(280px, 450px);
+        column-gap: 0;
+        row-gap: 40px;
+        padding: 20px;
+        justify-items: center;
+        text-align: center;
+    }
+
+    .monologue {
+        padding: 3rem 1.5rem;
+    }
+
+    .introGrid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .introContent {
+        width: 100%;
+    }
+
+    .introContent p {
+        max-width: none;
+    }
+
+    .projectBtnContainer {
+        display: block;
+        text-align: center;
+        margin: 3rem auto 0;
+    }
+}

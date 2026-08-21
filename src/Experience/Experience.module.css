@@ -5,7 +5,8 @@
     color: #FF3409;
   
     font-size: clamp(3rem, 10vw, 8rem); /* ✅ responsive */
-    margin: clamp(2rem, 6vw, 3rem) 0;
+    margin-top: clamp(2rem, 6vw, 3rem);
+    margin-bottom: 5rem;
   }
 
 .wrapper {
@@ -14,38 +15,37 @@
 }
 
 .experience {
-    --timeline-x: 50px;
-    max-width: 1100px;
-    margin: 0 auto;
+    width: min(1200px, 90vw);
+    margin: 0 auto 6rem;
     position: relative;
 }
 
 .experience::before {
     content: "";
     position: absolute;
-    left: var(--timeline-x);
+    
     top: 0;
-    bottom: 65px;
+    bottom: 0;
+    left: 50%;
+
     width: 3px;
     background-color: #5fb3a2;
+
+    transform: translateX(-50%);
 }
 
 .item {
     display: grid;
-    grid-template-columns: 100px 1fr; /* timeline | content */
-    margin-bottom: 48px;            /* spacing between cards */
-    position: relative;
+    grid-template-columns: 1fr 70px 1fr;
+    margin-bottom: 60px;            /* spacing between cards */
+    align-items: center;
 }
 
 .item::before {
-    content: "";
-    position: absolute;
-    left: calc(var(--timeline-x) + 1.5px); /* center of 3px line */
-    transform: translateX(-50%);
-    top: 32px;
+    grid-column: 2;
 
-    width: 16px;
-    height: 16px;
+    width: 18px;
+    height: 18px;
     background-color: #5fb3a2;
     border-radius: 50%;
     z-index: 2;
@@ -53,76 +53,161 @@
   
 /* card */
 .card {
-    grid-column: 2;
-    background: #fff;
-    padding: 100px 116px;
+    grid-column: 1;
+    background: #FCF9EB;
+    padding: 2rem 2.5rem;
     border-radius: 16px;
-
-    width: 100%;
-    max-width: 840px;
-    min-height: 200px;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* vertical centering */
+    transition: background-color 0.3s ease;
 
     box-shadow:
         0 1px 0 rgba(0,0,0,0.04),
         0 12px 30px rgba(0,0,0,0.08);
 }
 
+.item:has(.dot:hover) .card {
+    background-color: #f97f66;;
+}
+ 
+.item .date {
+    grid-column: 3;
+    padding-left: 25px;
+}
 
-  
+.reverse .date {
+    grid-column: 1;
+    grid-row: 1;
+
+    text-align: right;
+    padding-left: 0;
+    padding-right: 25px;
+}
+
+.dot {
+    grid-column: 2;
+
+    width: 34px;
+    height: 34px;
+
+    background-color: #5fb3a2;
+    border: 5px solid #FFE5D3;
+    border-radius: 50%;
+
+    justify-self: center;
+    z-index: 2;
+
+    box-shadow: 0 0 0 2px #5fb3a2;
+}
+
+.reverse .dot {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.reverse .card {
+    grid-column: 3;
+    grid-row: 1;
+}
+
 .date {
-    font-size: 1.2rem;
-    font-weight: 600;
-    color: #5fb3a2;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #5fb3a2;
 }
 
 .card h2 {
-    margin: 6px 0;
-    font-size: 3rem;
+    margin-bottom: 8px;
+    font-size: 2rem;
 }
 
 .card h3 {
-    margin: 6px 0;
-    font-size: 1.5rem;
+    margin-bottom: 18px;
+    font-size: 1.25rem;
 }
-  
+
 .card p {
-    color: #666;
-    line-height: 1.5;
-    margin: 6px 0;
+    color: #555;
+    line-height: 1.6;
 }
 
 @media (max-width: 934px) {
-    .item {
-      grid-template-columns: 1fr; /* 👈 no timeline column */
-    }
-  
-    .card {
-      grid-column: 1;
-    }
-  
-    .experience::before,
-    .item::before {
-      display: none; /* hide timeline + dots */
-    }
+  .experience {
+    width: 90%;
   }
 
-  @media (max-width: 934px) {
-    .card {
-      padding: 2rem 1.5rem; /* 👈 mobile-safe padding */
-    }
-  
-    .card h2 {
-      font-size: 2rem;
-    }
-  
-    .card h3 {
-      font-size: 1.25rem;
-    }
+  .experience::before {
+    left: 20px;
   }
-  
 
+  .item {
+    display: grid;
+    grid-template-columns: 40px 1fr;
+    margin-bottom: 40px;
+  }
+
+  .dot,
+  .reverse .dot {
+    grid-column: 1;
+    grid-row: 1;
+    justify-self: center;
+  }
+
+  .card,
+  .reverse .card {
+    grid-column: 2;
+    grid-row: 2;
+
+    width: 100%;
+    padding: 1.5rem;
+  }
+
+  .date,
+  .item .date,
+  .reverse .date {
+    grid-column: 2;
+    grid-row: 1;
+
+    text-align: left;
+    padding-left: 15px;
+    margin-bottom: 12px;
+  }
+
+  .card h2 {
+    font-size: 2rem;
+  }
+
+  .card h3 {
+    font-size: 1.2rem;
+  }
+}
+  
+@media (max-width: 600px) {
+  .title {
+    font-size: 4rem;
+    margin-bottom: 3rem;
+  }
+
+  .experience {
+    width: 94%;
+  }
+
+  .card {
+    padding: 1.25rem;
+  }
+
+  .card h2 {
+    font-size: 1.6rem;
+  }
+
+  .card h3 {
+    font-size: 1.1rem;
+  }
+
+  .card p {
+    font-size: 0.95rem;
+  }
+
+  .date {
+    font-size: 1rem;
+  }
+}
  

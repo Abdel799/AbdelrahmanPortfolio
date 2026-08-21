@@ -39,6 +39,14 @@ function Contact () {
         <>
              <h1 className={styles.title}>Contact</h1>
 
+              <div className={styles.socialLinks}>
+
+                <img src="linkedin.png" alt="" onClick={() => window.open("https://www.linkedin.com/in/abdelrahman-abdelaal-6714752a6/","_blank")}/>
+                <img src="github.png" alt="" onClick={() => window.open("https://github.com/Abdel799","_blank")}/>                
+                <img src="email.png" alt="Email" onClick={() => window.location.href = "mailto:abdelrahman.abd@hotmail.com"}/>
+
+              </div>
+
             <section className={styles.contact}>
       <form ref={formRef} onSubmit={sendEmail} className={styles.form}>
         <input

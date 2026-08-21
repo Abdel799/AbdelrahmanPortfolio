@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  user-select: none;
 }
 
 body {
@@ -28,6 +29,7 @@ body {
 .brand {
   font-size: 3rem;
   cursor: pointer;
+  font-family: Times, "Times New Roman", serif;
 }
 
 .nav-links {
@@ -39,11 +41,45 @@ body {
 
 .nav-links li {
   cursor: pointer;
+  font-family: Times, "Times New Roman", serif;;
 }
 
 .navbar a {
   text-decoration: none;
   color: inherit;
+}
+
+.top-btn {
+  position: fixed;
+  right: 30px;
+  bottom: 30px;
+
+  width: 55px;
+  height: 55px;
+
+  border: none;
+  border-radius: 50%;
+  background-color: #FF3409;
+  color: white;
+
+  font-size: 28px;
+  cursor: pointer;
+  z-index: 1000;
+
+  opacity: 0;
+  transform: translateY(15px);
+  pointer-events: none;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.top-btn.show {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.nav-links a.active {
+  font-weight: bold;
 }
 
 @media (max-width: 768px) {
@@ -73,5 +109,6 @@ body {
 
   .nav-links.open {
     display: flex;
+    padding-bottom: 0px;
   }
 }

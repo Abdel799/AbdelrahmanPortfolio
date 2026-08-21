@@ -51,3 +51,25 @@
     color: red;
   }
   
+  
+
+  .socialLinks {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    margin-bottom: 20px;
+}
+
+.socialLinks img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    cursor: pointer;
+
+    transition: transform 0.3s ease;
+}
+
+.socialLinks img:hover {
+    transform: translateY(-4px);
+}

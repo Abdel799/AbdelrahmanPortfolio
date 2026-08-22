@@ -11,28 +11,48 @@ function HomePage() {
   const monologueRef = useRef(null)
   const [showMonologue, setShowMonologue] = useState(false)
 
+  const [hasScrolled, setHasScrolled] = useState(false)
+
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setShowMonologue(true)
-          observer.disconnect() // run ONCE
-        }
-      },
-      {
-        threshold: 0.1,
-        rootMargin: "0px 0px -50px 0px"
+  const handleScroll = () => {
+    setHasScrolled(true)
+    window.removeEventListener("scroll", handleScroll)
+  }
+
+  window.addEventListener("scroll", handleScroll, {
+    passive: true
+  })
+
+  return () => {
+    window.removeEventListener("scroll", handleScroll)
+  }
+}, [])
+
+  useEffect(() => {
+  if (!hasScrolled) return
+
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      if (entry.isIntersecting) {
+        setShowMonologue(true)
+        observer.disconnect()
       }
-    )
-
-    if (monologueRef.current) {
-      observer.observe(monologueRef.current)
+    },
+    {
+      threshold: 0.1
     }
+  )
 
-    return () => observer.disconnect()
-  }, [])
+  if (monologueRef.current) {
+    observer.observe(monologueRef.current)
+  }
+
+  return () => observer.disconnect()
+}, [hasScrolled])
 
   useEffect(() => {
+  if (!hasScrolled) return
+
   const observer = new IntersectionObserver(
     ([entry]) => {
       if (entry.isIntersecting) {
@@ -41,8 +61,7 @@ function HomePage() {
       }
     },
     {
-      threshold: 0.25,
-      rootMargin: "0px 0px -80px 0px"
+      threshold: 0.25
     }
   )
 
@@ -51,7 +70,7 @@ function HomePage() {
   }
 
   return () => observer.disconnect()
-}, [])
+}, [hasScrolled])
 
   return (
     <>

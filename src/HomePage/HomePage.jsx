@@ -1,22 +1,15 @@
 import { useEffect, useRef, useState } from "react"
 import { TypeAnimation } from "react-type-animation"
 import styles from "./HomePage.module.css"
-import { useLocation } from "react-router-dom"
 import { Link } from "react-router-dom"
 
 function HomePage() {
 
-  const introRef = useRef(null)
   const [startTyping, setStartTyping] = useState(false)
+  const introRef = useRef(null)
 
   const monologueRef = useRef(null)
   const [showMonologue, setShowMonologue] = useState(false)
-
-  const location = useLocation()
-
-  useEffect(() => {
-    setShowMonologue(false)
-  }, [location.pathname])
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -26,7 +19,10 @@ function HomePage() {
           observer.disconnect() // run ONCE
         }
       },
-      { threshold: 0.3 }
+      {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px"
+      }
     )
 
     if (monologueRef.current) {
@@ -34,25 +30,28 @@ function HomePage() {
     }
 
     return () => observer.disconnect()
-  }, [location.pathname])
+  }, [])
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setStartTyping(true)
-          observer.disconnect() // 🔑 ensures it runs ONCE
-        }
-      },
-      { threshold: 0.6 }
-    )
-
-    if (introRef.current) {
-      observer.observe(introRef.current)
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      if (entry.isIntersecting) {
+        setStartTyping(true)
+        observer.disconnect()
+      }
+    },
+    {
+      threshold: 0.25,
+      rootMargin: "0px 0px -80px 0px"
     }
+  )
 
-    return () => observer.disconnect()
-  }, [])
+  if (introRef.current) {
+    observer.observe(introRef.current)
+  }
+
+  return () => observer.disconnect()
+}, [])
 
   return (
     <>
@@ -64,18 +63,16 @@ function HomePage() {
         <h1>
           Hey, I'm{" "}
           <span className={styles.name}>
-            {startTyping ? (
+            {startTyping && (
               <TypeAnimation
                 sequence={[
                   "abl",
-                  1500,
+                  1000,
                   "Abdelrahman"
                 ]}
                 speed={50}
                 repeat={0}
               />
-            ) : (
-              "abl"
             )}
           </span>
         </h1>

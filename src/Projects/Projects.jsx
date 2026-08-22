@@ -42,7 +42,7 @@ function Projects() {
       <div className={`${styles.projectsGrid} ${showProjects ? styles.fadeIn : ""}`} ref={projects}>
         <Card
           title="Chat Flow"
-          image="/chat2.png"
+          image="/chat2.webp"
           tech="ReactJS, NodeJS, ExpressJS, MongoDB, Socket.IO"
           description="A full-stack messaging app with real-time chat, authentication, persistent rooms, and online user tracking."
           demo="https://chat-flow-opal.vercel.app/"
@@ -51,7 +51,7 @@ function Projects() {
 
         <Card
           title="Lofi Nest"
-          image="/LofiNest.png"
+          image="/LofiNest.webp"
           tech="ReactJS, JavaScript, Groq API, YouTube API"
           description="A study platform with music-streaming, AI assistance, note-taking, calendar, and pomodoro timer."
           demo="https://lofinest.netlify.app/"
@@ -85,7 +85,7 @@ function Projects() {
 
         <Card
           title="Minesweeper"
-          image="/mine2.png"
+          image="/mine2.webp"
           tech="Python"
           description="A python command-line simulation of the online minesweeper game."
           github="https://github.com/Abdel799/mineSweeper.github.io"

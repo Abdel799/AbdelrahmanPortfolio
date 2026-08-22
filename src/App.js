@@ -12,6 +12,20 @@ function App() {
   const [open, setOpen] = useState(false)
   const [showButton, setShowButton] = useState(false)
   const dashboard = useRef(null)
+
+  useEffect(() => {
+  const mediaQuery = window.matchMedia("(max-width: 768px)")
+
+  const handleBreakpointChange = () => {
+    setOpen(false)
+  }
+
+  mediaQuery.addEventListener("change", handleBreakpointChange)
+
+  return () => {
+    mediaQuery.removeEventListener("change", handleBreakpointChange)
+  }
+}, [])
   
   useEffect(() => {
   const observer = new IntersectionObserver(

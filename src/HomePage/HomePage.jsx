@@ -74,10 +74,26 @@ function HomePage() {
 
   return (
     <>
+      
       <div className={styles.wrapper}>
-        <img src="/home.png" alt="home" className={styles.image} />
-      </div>
 
+        <div className={styles.homeImage}>
+
+          <img
+            src="/the-pic.png"
+            alt="Toronto skyline"
+            className={styles.image}
+            fetchPriority="high"
+          />
+
+          <h1 className={styles.welcome}>
+            WELCOME
+          </h1>
+
+        </div>
+
+      </div>
+          
       <div className={styles.intro}>
         <h1 ref={introRef}>
           Hey, I'm{" "}

@@ -80,7 +80,7 @@ function HomePage() {
         <div className={styles.homeImage}>
 
           <img
-            src="/the-pic.png"
+            src="/the-pic.webp"
             alt="Toronto skyline"
             className={styles.image}
             fetchPriority="high"

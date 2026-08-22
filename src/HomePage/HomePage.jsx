@@ -61,7 +61,7 @@ function HomePage() {
       }
     },
     {
-      threshold: 0.25
+      threshold: 0.5
     }
   )
 
@@ -78,8 +78,8 @@ function HomePage() {
         <img src="/home.png" alt="home" className={styles.image} />
       </div>
 
-      <div ref={introRef} className={styles.intro}>
-        <h1>
+      <div className={styles.intro}>
+        <h1 ref={introRef}>
           Hey, I'm{" "}
           <span className={styles.name}>
             {startTyping && (
